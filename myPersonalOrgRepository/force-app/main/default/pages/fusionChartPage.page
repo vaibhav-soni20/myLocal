@@ -1,0 +1,44 @@
+<apex:page controller="FusionChartController" sidebar="true" action="{!renderFusionChart}" >
+   <html>
+    <head>
+ <apex:includeScript value="{!URLFOR($Resource.fusioncharts,'js/fusioncharts.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.fusioncharts,'js/fusioncharts.charts.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.fusioncharts,'js/themes/fusioncharts.theme.fint.js')}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    $( document ).ready(function() {
+        alert('{!fusionData }');
+        FusionCharts.ready(function() {
+            var revenueChart = new FusionCharts({
+                "type": "column2d",
+                "renderAt": "chartContainer",
+                "width": "500",
+                "height": "300",
+                "dataFormat": "json",
+                "dataSource": {
+                    "chart": {
+                        "caption": "Monthly revenue for last year",
+                        "subCaption": "Harry's SuperMart",
+                        "xAxisName": "Month",
+                        "yAxisName": "Revenues (In USD)",
+                        "theme": "fint"
+                    },
+                    "data": {!fusionData }
+                }
+
+            });
+            revenueChart.render();
+        })
+    });
+    </script> 
+    </head>        
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+      <body>
+      <apex:pageBlock id="container">
+          <div id="chartContainer">FusionCharts XT will load here!</div>
+      </apex:pageBlock>
+      </body>
+</html>
+</apex:page>

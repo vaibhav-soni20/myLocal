@@ -1,0 +1,37 @@
+<apex:page StandardController="Opportunity" recordSetVar="Opportunities">
+  <!-- Begin Default Content REMOVE THIS -->
+
+  <!--  
+  <apex:form >
+  <apex:inputText label="Name" title="Name" value="{!Opportunity.name}" /><br/>
+  <apex:inputfield label="Stage Name" value="{!Opportunity.StageName}" />
+  <apex:inputfield value="{!Opportunity.CloseDate}"/>
+  <br />
+  <apex:commandButton value="Insert" action="{!Save}"/>
+  </apex:form>-->
+  <apex:form >
+      <apex:pageBlock >
+      <apex:pageblockSection >
+      
+    <!--  <apex:inputfield label="Name"   value="{!Opportunity.name}" /><br/>
+      
+     -->
+      <apex:inputText label="Stage Name" value="{!Opportunity.StageName}" /><br/>
+      
+      
+      <apex:inputText value="{!Opportunity.CloseDate}"/><br/>
+     
+      <apex:commandButton rendered="true" title="edit" action="{!edit}" value="edit"/>
+      </apex:pageblockSection>
+          <apex:pageBlockTable value="{!Opportunities}" var="opp" >
+              <apex:column >
+                  <apex:outputLink target="_blank" value="/apex/Test_1_Standard_Controller_Operation?id={!opp.id}" >
+                  {!opp.name}
+                  </apex:outputLink>
+                    
+              </apex:column>
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+  </apex:form>
+  
+</apex:page>

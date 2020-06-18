@@ -1,0 +1,6 @@
+<apex:page controller="WithandWithoutSharingClass" >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>{!vehicleList} </h1>
+  This is your new Page: WithandWithoutSharingpage
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

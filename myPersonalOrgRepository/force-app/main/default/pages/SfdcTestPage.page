@@ -1,0 +1,16 @@
+<apex:page standardController="Expense__c" >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Lets Insert Data in Expences</h1>
+  <apex:form >
+      <apex:pageBlock title="Hakuna Matata" >
+          <apex:pageBlockSection columns="2" title="Enter The Value" >
+               <apex:inputText required="true" value="{!Expense__c.Name}" />
+              <apex:inputText label="Enter amount" value="{!Expense__c.Amount__c}" />
+          </apex:pageBlockSection>
+         
+          <apex:commandButton value="Submit" action="{!save}"   />
+      </apex:pageBlock>
+  
+  </apex:form>
+
+</apex:page>

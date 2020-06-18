@@ -1,0 +1,49 @@
+<apex:page standardController="Account" extensions="AccountSearchController_Ideavate"  > 
+    <apex:form >
+    
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+              <apex:inputField value="{!Account.Name}" required="false"   />
+              <apex:inputField value="{!Account.Industry}"   />
+              <apex:commandButton value="Search" action="{!AccountSearchMethod}" reRender="listPanel"  />
+            </apex:pageBlockSection>
+           
+            <apex:pageBlockSection id="listPanel" >
+              <apex:messages />
+               <!--
+                <apex:pageBlockTable value="{!setCont['records']}" var="a"  >
+                    <apex:column value="{!a.name}" />
+                </apex:pageBlockTable> 
+                -->
+                
+                <apex:pageBlockTable value="{!accList2}" var="a"  >
+                  
+                     <apex:column value="{!a.name}" />
+                    <apex:column value="{!a.Industry}" />
+                </apex:pageBlockTable>
+               <apex:panelGrid columns="2">
+     
+      <apex:commandLink action="{!next}">Next</apex:commandlink>
+    </apex:panelGrid>
+            </apex:pageBlockSection>
+             
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
+
+<!--
+<apex:page standardController="Account" recordSetvar="accounts">
+  <apex:pageBlock title="Viewing Accounts">
+  <apex:form id="theForm">
+    <apex:pageBlockSection >
+      <apex:dataList var="a" value="{!accounts}" type="1" rows="4">
+        {!a.name}
+      </apex:dataList>
+    </apex:pageBlockSection>
+    <apex:panelGrid columns="2">
+      <apex:commandLink action="{!previous}">Previous</apex:commandlink>
+      <apex:commandLink action="{!next}">Next</apex:commandlink>
+    </apex:panelGrid>
+  </apex:form> 
+  </apex:pageBlock>
+</apex:page>-->

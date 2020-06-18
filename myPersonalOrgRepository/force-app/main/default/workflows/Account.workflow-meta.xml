@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Time_dependent_action</fullName>
+        <description>Time dependent action</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>vaibhav@soni.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CommunityAsyncVerificationEmailTemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>Time_dependent_action2</fullName>
+        <description>Time dependent action2</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>vaibhav@soni.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CommunityChangePasswordEmailTemplate</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Acc_update_on_time</fullName>
+        <field>BillingStreet</field>
+        <name>Acc update on time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Action</fullName>
+        <field>Name</field>
+        <formula>Name + &#39; Submitted&#39;</formula>
+        <name>Approval Action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Action_step_1</fullName>
+        <field>Name</field>
+        <formula>Name + &#39;Step 1 Approved&#39;</formula>
+        <name>Approval Action step 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Action_step_1_reject</fullName>
+        <field>Name</field>
+        <formula>Name + &#39; Rejected step 1&#39;</formula>
+        <name>Approval Action step 1 reject</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Revenue_Reset_to_100</fullName>
+        <field>AnnualRevenue</field>
+        <formula>100</formula>
+        <name>Revenue Reset to 100</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Test_Workflow_Action</fullName>
+        <field>SLASerialNumber__c</field>
+        <formula>Another_User_Temp__c</formula>
+        <name>Test Workflow Action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>workFlow_run</fullName>
+        <field>NumberofLocations__c</field>
+        <formula>IF(NumberofLocations__c= null, 1, NumberofLocations__c+1)</formula>
+        <name>workFlow run</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Revenue Reset</fullName>
+        <actions>
+            <name>Revenue_Reset_to_100</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>workFlow_run</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.AnnualRevenue</field>
+            <operation>greaterThan</operation>
+            <value>100</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

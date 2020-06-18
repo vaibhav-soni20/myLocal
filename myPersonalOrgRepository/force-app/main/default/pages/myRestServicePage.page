@@ -1,0 +1,11 @@
+<apex:page controller="AccountRESTController">
+  <apex:form >  
+         <!-- <B><apex:inputText id="box" rendered="true" value="{!searchtext}">Account Name:&nbsp;</apex:inputText></B><br/><br/>
+               -->   
+               <b>  <apex:inputTextarea id="box" rendered="true" value="{!searchtext}">Account Name:&nbsp;</apex:inputTextarea></B><br/><br/>
+          <apex:commandButton value="Display Records" action="{!restTest}" reRender="box" status="waitStatus"/>
+          <apex:actionStatus startText="Fetching Records..." stopText="" id="waitStatus"/><br/><br/>
+          
+          
+  </apex:form>
+</apex:page>

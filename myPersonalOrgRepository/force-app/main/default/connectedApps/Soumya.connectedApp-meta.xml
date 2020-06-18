@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>vaibhav.soni20@gmail.com</contactEmail>
+    <contactPhone>7898946682</contactPhone>
+    <label>Salesforce</label>
+    <oauthConfig>
+        <callbackUrl>https://van-dev-ed.my.salesforce.com/home/home.jsp</callbackUrl>
+        <consumerKey>3MVG9YDQS5WtC11qIxszIJvsm7aiby6wLRNm2Bpy3NGOW_3Y9UzfScOoqPxFWDxfM3SZhE7kHLvOZwd7Z3aez</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <scopes>Full</scopes>
+    </oauthConfig>
+</ConnectedApp>

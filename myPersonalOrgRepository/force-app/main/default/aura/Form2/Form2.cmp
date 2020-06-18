@@ -1,0 +1,48 @@
+<aura:component >
+    <aura:attribute name="expences" type="Expence__c[]" />
+        <aura:attribute name="newExpence" type="Expence__c" default="{'name':'',
+                                                                     'Amount__c':0,
+                                                                     'client__c':'',
+                                                                     'Date__c':'',
+                                                                     'Reimbursed__c'}" />
+    <aura:attribute name="total" type="Double" default="0.0" />
+    <aura:attribute name="exp" type="Double" default="0.0" />
+    <aura:handler name="init" action="{!doInit}" value="{!this}"/>
+    <div class="container">
+        <form>
+            <div>
+                <ui:inputText aura:id="name" label="Expence Name" value="{!v.newExpence.name}" />
+            </div>
+            
+            <div>
+                <ui:inputNumber aura:id="amount" label="Amount" value="{!v.newExpence.Amount__c}" />
+            </div>
+            <div>
+                <ui:inputText aura:id="client" label="Client" value="{!v.newExpence.Client__c}" />
+            </div>
+            <div>
+                <ui:inputDateTime aura:id="date" label="Date" value="{!v.newExpence.Date__c}" />
+            </div>
+            <div>
+                <ui:inputCheckbox aura:id="reimbursed" label="reimbursed" value="{!v.newExpence.reimbursed}" />
+            </div>
+            <div>
+                <ui:button label="Submit" press="{!c.createExpence}" />
+            </div>
+            
+        </form>
+        
+        <div>
+           Total Expences <ui:outputtext value="{!handle.Exp}" />
+        </div>
+        <div>
+           No of Expences <ui:outputtext value="{!handle.total}" />
+        </div>
+        <div>
+            <aura:iteration items="{!handler.expences}" var="exp">
+            {!exp.name}
+            </aura:iteration>
+        </div>
+    </div>
+	
+</aura:component>
