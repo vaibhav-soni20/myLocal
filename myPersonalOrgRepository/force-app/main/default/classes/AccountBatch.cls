@@ -17,7 +17,7 @@ global class AccountBatch implements Database.Batchable<sObject> {
     }
     
       //check details on git movement
-      //Hakuna MAtata
+      //Hakuna MAtata-Sowmini
     global Database.QueryLocator Start(Database.BatchableContext b){
         System.debug('Start() Get Called');
         return DataBase.getQueryLocator('Select id, name from Account where name like \'test Batch Account %\'');
